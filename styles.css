@@ -1,0 +1,150 @@
+:root {
+  --yellow: #dcf900;
+}
+
+* {
+  background-color: #ddd6cd;
+}
+
+.svgImg {
+  margin-right: 17%;
+  overflow: visible;
+}
+
+#kood {
+  fill: var(--yellow);
+}
+
+#johvi {
+  fill: black;
+  animation: moveLeft 1s forwards;
+}
+
+@keyframes moveLeft {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateX(30%);
+    opacity: 1;
+  }
+}
+
+/* LOGIN */
+
+.login {
+  height: 50%;
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.loginP {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0 10px 0;
+}
+
+.field {
+  padding: 10px;
+  border: none;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.field:hover {
+  opacity: 0.8;
+}
+
+.error {
+  color: red;
+}
+
+button {
+  height: 50px;
+  margin-top: 15%;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+}
+
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.main {
+  box-sizing: border-box;
+  height: 95vh;
+}
+
+.linegraph {
+  border-bottom: 1px solid black;
+  justify-self: center;
+  padding-right: 15%;
+}
+
+.profile {
+  margin: 0 0 0 2%;
+  width: 300px;
+  height: 100%;
+  float: left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  /* margin: auto; */
+  text-align: center;
+}
+
+.title {
+  color: grey;
+  font-size: 24px;
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+.graphs {
+  padding: 0 20% 0 2%;
+}
+
+.content {
+  width: 65%;
+  float: right;
+}
+
+.subtitle {
+  font-weight: 1000;
+}
+
+/* linegraph events */
+.linerect {
+  pointer-events: all;
+  fill-opacity: 0;
+  stroke-opacity: 0;
+  z-index: 1;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  background-color: steelblue;
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  display: none;
+  opacity: 0.75;
+}
