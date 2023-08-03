@@ -169,6 +169,7 @@ function generateProfile(data) {
     cont.append(logOutBtn)
     logOutBtn.addEventListener("click", () => {
         document.querySelector(".main").innerHTML = ""
+        console.log("deleteing")
         document.cookie = 'graphQLtoken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
         generateLoginPage()
     })
@@ -312,26 +313,8 @@ function createSvg() {
     feBlend2.setAttribute("result", "shape")
     filter.append(feBlend2)
 
-    console.log(gKoodj)
     defs.append(filter)
     svg.append(defs)
-
-
-    let svgText = `
-    <defs>
-      <filter id="filter0_d_8_125" x="0.681763" y="8.00568" width="112.972" height="39.4062" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-        <feOffset dy="4" />
-        <feGaussianBlur stdDeviation="2" />
-        <feComposite in2="hardAlpha" operator="out" />
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_8_125" />
-        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_8_125" result="shape" />
-      </filter>
-    </defs>`
-    // svg.innerHTML = svgText
-
 
     let newDiv = createElement("div", "", ["svgImg"])
     newDiv.append(svg)
