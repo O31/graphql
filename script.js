@@ -170,7 +170,9 @@ function generateProfile(data) {
     logOutBtn.addEventListener("click", () => {
         document.querySelector(".main").innerHTML = ""
         console.log("deleteing")
-        document.cookie = 'graphQLtoken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+        document.cookie = `${"graphQLtoken=;"}`;
+
+        // document.cookie = 'graphQLtoken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
         generateLoginPage()
     })
 
