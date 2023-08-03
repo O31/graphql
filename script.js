@@ -6,7 +6,7 @@ generateLoginPage()
 
 function generateLoginPage() {
     let token = getCookie("graphQLtoken")
-    if (token == "") {
+    if (token == "" || token == null) {
         let loginDiv = createElement("div", "", ["login"])
         let imgSvg = createSvg()
 
@@ -25,9 +25,6 @@ function generateLoginPage() {
         loginDiv.addEventListener("keypress", (e) => {
             if (e.key == "Enter") submitLogin(emailInput.value, passwordInput.value)
         })
-        loginBtn.addEventListener("click", () => {
-            submitLogin(emailInput.value, passwordInput.value)
-        })
 
         let uLabel = createElement("label", "USERNAME", ["loginP"])
         uLabel.setAttribute("for", "uName")
@@ -42,6 +39,11 @@ function generateLoginPage() {
         formElem.append(loginBtn)
         loginDiv.append(formElem)
         document.querySelector(".main").append(loginDiv)
+        formElem.onsubmit = (e) => {
+            e.preventDefault;
+            submitLogin(emailInput.value, passwordInput.value)
+            return false
+        }
     } else {
         getXPdata(token)
     }
@@ -116,12 +118,18 @@ function getXPdata(authToken) {
     }).then(response => {
         return response.json()
     }).then(data => {
-        document.querySelector(".main").append(createElement("div", "", ["content"]))
-        document.querySelector(".content").append(createElement("div", "", ["graphs"]))
-        cleanData(data)
-        generateProfile(data.data)
-        createGraph(data)
-        generateBarGraph(data.data.transactions)
+        if (data.errors != undefined) {
+            document.cookie = "";
+            generateLoginPage()
+        } else {
+            document.querySelector(".main").append(createElement("div", "", ["content"]))
+            document.querySelector(".content").append(createElement("div", "", ["graphs"]))
+            cleanData(data)
+            generateProfile(data.data)
+            createGraph(data)
+            generateBarGraph(data.data.transactions)
+        }
+
     })
 }
 
