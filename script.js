@@ -119,7 +119,7 @@ function getXPdata(authToken) {
         return response.json()
     }).then(data => {
         if (data.errors != undefined) {
-            document.cookie = "";
+            document.cookie = `${"graphQLtoken=;"}`;
             generateLoginPage()
         } else {
             document.querySelector(".main").append(createElement("div", "", ["content"]))

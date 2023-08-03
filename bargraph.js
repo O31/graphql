@@ -2,7 +2,6 @@ import { formatBytes, createElement } from "./script.js"
 
 
 export function generateBarGraph(data) {
-    console.log("bargraph", data)
     const margin = { top: 70, right: 30, bottom: 60, left: 175 }
     const width = 800 - margin.left - margin.right
     const height = 500 - margin.top - margin.bottom
@@ -27,7 +26,6 @@ export function generateBarGraph(data) {
     const x = d3.scaleLinear()
         .range([0, width])
         .domain([0, d3.max(data, function (d) {
-            console.log(d.amount)
             return d.amount
         })])
 
